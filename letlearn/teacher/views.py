@@ -6,12 +6,12 @@ from django.contrib.auth import logout, authenticate, login
 
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'teacher/home.html')
 
 
-def portal(request):
-    portal = portal.objects.all()
-    return render(request, 'portal.html', {'portal': portal})
+# def portal(request):
+#     portal = portal.objects.all()
+#     return render(request, 'teacher/portal.html', {'portal': portal})
 
 
 def login_page(request):
@@ -27,18 +27,21 @@ def login_page(request):
         else:
             # No backend authenticated the credentials
             return render(request, 'home.html')
-    return render(request, 'login_page.html')
+    return render(request, 'teacher/login_page.html')
 
 
 def logout_page(request):
     logout(request)
-    return render(request, 'home.html')
+    return render(request, 'teacher/home.html')
 
 
 def assignment(request):
     assignment = assignment.objects.all()
-    return render(request, 'assignment.html', {'assignment': assignment})
+    return render(request, 'teacher/assignment.html', {'assignment': assignment})
 
+def portal(request):
+    portal = portal.objects.all()
+    return render(request, 'teacher/portal.html', {'portal': portal})
 
 def addAssignment(request):
     addAssignment = addAssignment.objects.all()
@@ -50,7 +53,7 @@ def uploadedAssignment(request):
     context = {
         "object_list": queryset
     }
-    return render(request, 'uploaded.html', context)
+    return render(request, 'teacher/uploaded.html', context)
 
 
 def deleteAssignment(request):
@@ -63,4 +66,4 @@ def deleteAssignment(request):
         SchoolAssignment.objects.filter(
             assignmentid=assignmentid, assignmentname=assignmentname).delete()
 
-    return render(request, 'delete.html', {'deleteAssignment': deleteAssignment})
+    return render(request, 'teacher/delete.html', {'deleteAssignment': deleteAssignment})

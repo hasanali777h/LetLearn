@@ -23,3 +23,43 @@ def profile(request):
 
     else:
         redirect('login/')
+
+
+def client(request):
+    if request.user.is_authenticated:
+        return render(request, 'clientprof.html')
+
+    else:
+        redirect('login/')
+
+
+def teacher(request):
+    if request.user.is_authenticated:
+        return render(request, 'teacherprof.html')
+
+    else:
+        redirect('login/')
+
+
+def studentpro(request):
+    if request.user.is_authenticated:
+        return render(request, 'studentprof.html')
+
+    else:
+        redirect('login/')
+
+
+def principal(request):
+    if request.user.is_authenticated:
+        return render(request, 'principalprof.html')
+
+    else:
+        redirect('login/')
+
+
+def parents(request):
+    if request.user.is_authenticated:
+        return render(request, 'parentsprof.html')
+
+    else:
+        redirect('login/')

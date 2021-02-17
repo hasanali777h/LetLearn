@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'learn.apps.LearnConfig',
     'register.apps.RegisterConfig',
     'home.apps.HomeConfig',
+    'parents.apps.ParentsConfig',
     'teacher',
     'crispy_forms'
 ]
@@ -84,7 +85,7 @@ WSGI_APPLICATION = 'letlearn.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR , 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
